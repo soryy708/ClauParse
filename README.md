@@ -58,5 +58,6 @@ void print(ClauParse::Data::Node* origin, const unsigned int indent)
 
 - Add checks to improve messages given by `ParsingException`.
 - Add checks to open files in a safer manner.
+- Optimize. (Run profiler. Consider move semantics.)
 
 ---
