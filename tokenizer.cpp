@@ -24,7 +24,7 @@ namespace ClauParse
 
 		const std::regex re{ "\\s*(?:\n|(#[^\n]*)|(\\{)|(\\})|(=)|([^{}= \t\r\n]+))" };
 
-		std::for_each(std::sregex_iterator(cbegin(str), cend(str), re), std::sregex_iterator(), [&](const auto& i) {
+		std::for_each(std::sregex_iterator(str.cbegin(), str.cend(), re), std::sregex_iterator(), [&](const auto& i) {
 			if (i[1].length() > 0U) {
 				tokens.emplace_back(Token::TYPE_COUNT, i[1]);
 			}
