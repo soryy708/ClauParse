@@ -6,12 +6,13 @@
 #include "Clauparse/tokenizer.h"
 #include <fstream>
 #include <string>
+#include <stdexcept>
 
 namespace ClauParse
 {
 	/* `makeNode`
 	 * tokens[i].type must be Tokens::LABEL
-	 * 
+	 *
 	 * TODO:
 	 * Make more checks to improve `ParsingException` messages.
 	 */
