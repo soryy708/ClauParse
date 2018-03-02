@@ -81,7 +81,7 @@ namespace ClauParse
 				}
 				else
 				{
-					throw(ParsingException("Expected EQUALS after LABEL"));
+					node.children.push_back(Data::Node(&node, ""));
 				}
 			}
 		}
