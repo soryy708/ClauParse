@@ -22,7 +22,7 @@ namespace ClauParse
 	{
 		std::vector<Token> tokens;
 
-		const std::regex re{ "\\s*(?:\n|(#[^\n]*)|(\\{)|(\\})|(=)|([^{}= \t\r\n]+))" };
+		const std::regex re{ "\\s*(?:\n|(#[^\n]*)|(\\{)|(\\})|(=)|([^{}=\t\r\n]+))" };
 
 		std::for_each(std::sregex_iterator(str.cbegin(), str.cend(), re), std::sregex_iterator(), [&](const auto& i) {
 			if (i[1].length() > 0U) {
