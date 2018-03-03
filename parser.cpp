@@ -82,7 +82,7 @@ namespace ClauParse
 				}
 				else
 				{
-					node.children.push_back(Data::Node(&node, ""));
+					node.children.push_back(Data::Node(&node, L""));
 				}
 			}
 		}
@@ -95,14 +95,14 @@ namespace ClauParse
 
 	Data parseFile(const char* path)
 	{
-		std::ifstream fin(path);
+		std::wifstream fin(path);
 		if (fin.is_open() && fin.good()) // TODO: More checks on fin?
 		{
 			std::vector<Token> tokens;
 			tokens.reserve(1024);
 
 			// Read file line by line, tokenize each line, and concate all in `tokens`.
-			std::string str;
+			std::wstring str;
 			while (std::getline(fin, str))
 			{
 				auto line_tokens = tokenizeLine(str);

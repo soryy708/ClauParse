@@ -19,11 +19,11 @@ namespace ClauParse
 		 */
 		struct Node
 		{
-			std::string name;
+			std::wstring name;
 			std::vector<Node> children;
 			Node* parent;
 
-			Node(Node* parent, std::string name = "") :
+			Node(Node* parent, std::wstring name = L"") :
 				parent(parent),
 				name(name)
 			{

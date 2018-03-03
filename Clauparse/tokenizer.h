@@ -20,16 +20,16 @@ namespace ClauParse
 			BLOCK_CLOSE,
 			TYPE_COUNT
 		} type;
-		std::string value;
-		
-		Token(const Type type, const std::string value) :
+		std::wstring value;
+
+		Token(const Type type, const std::wstring value) :
 			type(type),
 			value(value)
 		{
 		}
 	};
 
-	std::vector<Token> tokenizeLine(const std::string str);
+	std::vector<Token> tokenizeLine(const std::wstring str);
 }
 
 #endif
