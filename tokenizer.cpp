@@ -18,24 +18,24 @@ namespace ClauParse
 	 * Everything else creates a token of type `LABEL`.
 	 * Tokens must not have empty space(s).
 	 */
-	std::vector<Token> tokenizeLine(const std::string str)
+	std::vector<Token> tokenizeLine(const std::wstring str)
 	{
 		std::vector<Token> tokens;
 
-		const std::regex re{ "\\s*(?:\n|(#[^\n]*)|(\\{)|(\\})|(=)|([^{}=\t\r\n]+))" };
+		const std::wregex re{ L"\\s*(?:\n|(#[^\n]*)|(\\{)|(\\})|(=)|([^{}=\t\r\n]+))" };
 
-		std::for_each(std::sregex_iterator(str.cbegin(), str.cend(), re), std::sregex_iterator(), [&](const auto& i) {
+		std::for_each(std::wsregex_iterator(str.cbegin(), str.cend(), re), std::wsregex_iterator(), [&](const auto& i) {
 			if (i[1].length() > 0U) {
 				tokens.emplace_back(Token::TYPE_COUNT, i[1]);
 			}
 			else if (i[2].length() > 0U) {
-				tokens.emplace_back(Token::BLOCK_OPEN, std::string("{"));
+				tokens.emplace_back(Token::BLOCK_OPEN, std::wstring(L"{"));
 			}
 			else if (i[3].length() > 0U) {
-				tokens.emplace_back(Token::BLOCK_CLOSE, std::string("}"));
+				tokens.emplace_back(Token::BLOCK_CLOSE, std::wstring(L"}"));
 			}
 			else if (i[4].length() > 0U) {
-				tokens.emplace_back(Token::EQUALS, std::string("="));
+				tokens.emplace_back(Token::EQUALS, std::wstring(L"="));
 			}
 			else if (i[5].length() > 0U) {
 				tokens.emplace_back(Token::LABEL, i[5]);
