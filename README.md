@@ -25,7 +25,7 @@ void print(ClauParse::Data::Node* origin, const unsigned int indent)
 	
 	for (unsigned int i = 0; i < indent; ++i)
 		std::cout << "  ";
-	std::cout << origin->name << " = ";
+	std::wcout << origin->name << " = ";
 	
 	if (origin->children.size() > 1)
 	{
@@ -42,7 +42,7 @@ void print(ClauParse::Data::Node* origin, const unsigned int indent)
 	{
 		if (origin->children.size() == 1)
 		{
-			std::cout << origin->children[0].name << std::endl;
+			std::wcout << origin->children[0].name << std::endl;
 		}
 		else
 		{
