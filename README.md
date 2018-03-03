@@ -24,19 +24,19 @@ void print(ClauParse::Data::Node* origin, const unsigned int indent)
 		return;
 	
 	for (unsigned int i = 0; i < indent; ++i)
-		std::cout << "  ";
-	std::wcout << origin->name << " = ";
+		std::wcout << L"  ";
+	std::wcout << origin->name << L" = ";
 	
 	if (origin->children.size() > 1)
 	{
-		std::cout << "{" << std::endl;
+		std::wcout << L"{" << std::endl;
 		for (auto i : origin->children)
 		{
 			print(&i, indent + 1);
 		}
 		for (unsigned int i = 0; i < indent; ++i)
-			std::cout << "  ";
-		std::cout << "}" << std::endl;
+			std::wcout << L"  ";
+		std::wcout << L"}" << std::endl;
 	}
 	else
 	{
@@ -46,7 +46,7 @@ void print(ClauParse::Data::Node* origin, const unsigned int indent)
 		}
 		else
 		{
-			std::cout << "NaN" << std::endl;
+			std::wcout << L"NaN" << std::endl;
 		}
 	}
 }
